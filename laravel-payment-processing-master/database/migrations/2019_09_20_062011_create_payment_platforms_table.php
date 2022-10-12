@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreatePaymentPlatformsTable extends Migration
 {
@@ -14,9 +14,10 @@ class CreatePaymentPlatformsTable extends Migration
     public function up()
     {
         Schema::create('payment_platforms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'.50);
-            $table->string('imafe');
+            $table->bigIncrements('id');
+            $table->string('name', 50);
+            $table->string('image');
+            $table->boolean('subscriptions_enabled')->default(false);
             $table->timestamps();
         });
     }
